@@ -1,0 +1,3 @@
+rootProject.name = 'reactiev-programming-in-spring-5'
+
+include "chapter-2"
