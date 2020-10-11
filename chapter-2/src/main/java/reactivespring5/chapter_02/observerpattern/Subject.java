@@ -1,4 +1,4 @@
-package reactivespring5.observerpattern;
+package reactivespring5.chapter_02.observerpattern;
 
 public interface Subject<T> {
     void registerObserver(Observer<T> observer);

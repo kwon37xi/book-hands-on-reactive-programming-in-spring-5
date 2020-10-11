@@ -1,6 +1,5 @@
-package reactivespring5.observerpattern;
+package reactivespring5.chapter_02.observerpattern;
 
-import org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

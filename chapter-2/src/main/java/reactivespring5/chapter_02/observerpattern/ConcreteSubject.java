@@ -1,4 +1,4 @@
-package reactivespring5.observerpattern;
+package reactivespring5.chapter_02.observerpattern;
 
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;

@@ -1,4 +1,4 @@
-package reactivespring5.observerpattern;
+package reactivespring5.chapter_02.observerpattern;
 
 public class ConcreteObserverB implements Observer<String> {
     @Override
