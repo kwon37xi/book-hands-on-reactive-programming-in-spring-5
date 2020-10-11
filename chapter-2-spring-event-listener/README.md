@@ -1,4 +1,5 @@
 # Spring Event Listener 결과
+* http://localhost:8080 호출
 * 4개의 창에서 동시에 요청할 때,
 
 ```
@@ -23,4 +24,16 @@
 [lTaskExecutor-2] r.c.s.TemperatureController              : send temperature : -11.667562134115464
 [lTaskExecutor-2] r.c.s.TemperatureController              : send temperature : -11.667562134115464
 
+```
+
+## AsyncRequestTimeoutException 방지
+Spring MVC 에서 [AsyncRequestTimeoutException](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/context/request/async/AsyncRequestTimeoutException.html)이
+발생한다.
+
+아래 설정으로 timeout 무제한으로 변경할 수 있다.
+```
+spring:
+  mvc:
+    async:
+      request-timeout: -1
 ```
