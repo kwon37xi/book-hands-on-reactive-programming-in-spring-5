@@ -1,7 +1,8 @@
 rootProject.name = 'book-hands-on-reactive-programming-in-spring-5'
 
-include "chapter-1"
-include "chapter-2:observerpattern"
-include "chapter-2:spring-event-listener"
-include "chapter-2:rxjava-basic"
-include "chapter-2:rxjava-event-listener"
+include "chapter-01"
+include "chapter-02:observerpattern"
+include "chapter-02:spring-event-listener"
+include "chapter-02:rxjava-basic"
+include "chapter-02:rxjava-event-listener"
+include "chapter-04:reactor-basic"
