@@ -2,7 +2,7 @@ package reactivespring5.chapter_04.reactor_basic;
 
 import reactor.core.publisher.Flux;
 
-public class FluxBasic {
+public class FluxRepeat {
     // 무한 스트림을 collection 으로 만들기 때문에 OOM발생한다.
     // Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
     public static void main(String[] args) {
