@@ -1,4 +1,4 @@
-package reactivespring5.chapter_04.backpressure;
+package reactivespring5.chapter_04.coldhot;
 
 import reactor.core.publisher.Flux;
 
