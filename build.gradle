@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.3.4.RELEASE' apply false
     id 'io.spring.dependency-management' version '1.0.10.RELEASE' apply false
 }
+
 subprojects {
     apply plugin: 'java-library'
     apply plugin: 'idea'
@@ -13,6 +14,11 @@ subprojects {
     sourceCompatibility = '11'
 
     configurations {
+        all*.exclude group: 'commons-logging', module: 'commons-logging' // replaced with jcl-over-slf4j
+        all*.exclude group: 'log4j', module: 'log4j' // replaced with log4j-over-slf4j
+        all*.exclude group: 'org.apache.logging.log4j' // replaced with log4j-over-slf4j
+        all*.exclude module: 'slf4j-log4j12'
+
         compileOnly {
             extendsFrom annotationProcessor
         }
@@ -23,6 +29,10 @@ subprojects {
     }
 
     dependencies {
+        implementation 'org.slf4j:jcl-over-slf4j:1.7.30'
+        implementation 'org.slf4j:log4j-over-slf4j:1.7.30'
+        implementation 'ch.qos.logback:logback-classic:1.2.3'
+
         compileOnly 'org.projectlombok:lombok'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
