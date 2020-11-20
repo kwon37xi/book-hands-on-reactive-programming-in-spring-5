@@ -8,11 +8,12 @@ import reactor.core.scheduler.Schedulers;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 
+
 @Slf4j
 public class P194_SubscribeOnExample {
     public static void main(String[] args) throws InterruptedException {
-        Scheduler publishOnScheduler = Schedulers.fromExecutor(Executors.newSingleThreadExecutor(r -> new Thread(r, "publishOnThread")));
-        Scheduler subscribeOnScheduler = Schedulers.fromExecutor(Executors.newSingleThreadExecutor(r -> new Thread(r, "subscribeOnThread")));
+        Scheduler publishOnScheduler = Schedulers.newSingle("publishOnThread");
+        Scheduler subscribeOnScheduler = Schedulers.newSingle("subscribeOnThread");
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
         Mono.fromCallable(() -> {
