@@ -34,7 +34,7 @@ public class P190_PublishOnExample {
                 return s.length() > 1;
             })
             // publishOn 위 지점까지 main 쓰레드에서 이벤트 발행을 순차적으로 모두 완료한다.
-//            .publishOn(scheduler) // *주석처리 해볼 것.*
+            .publishOn(scheduler) // *주석처리 해볼 것.*
             // publishOn 이하부분은 위에서 받은 이벤트 순서를 모두 지키면서 실행되지만, 해당 값들은 이미
             // 어딘가에 순서대로 queue 로 저장돼 있다. 비록 calculateHash가 50ms 씩 sleep을 해도,
             // 상우 이벤트 발행은 모두 그에 무관하게 진행되고,

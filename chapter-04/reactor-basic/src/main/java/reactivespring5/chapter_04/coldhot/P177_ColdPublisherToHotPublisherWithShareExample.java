@@ -19,7 +19,7 @@ public class P177_ColdPublisherToHotPublisherWithShareExample {
         Flux<Integer> cachedSource = source.share(); // -> Hot Publisher 로 전환됨
 
         cachedSource.subscribe(e -> log.info("[S 1] onNext: {}", e));
-        Thread.sleep(400);
+        Thread.sleep(400); // 이걸 위로 올려도 최초 구독자가 나타날 때까지 publish 안됨. 구독을 해야만 시작됨.
         cachedSource.subscribe(e -> log.info("[S 2] onNext: {}", e)); // 이미 지나간 이벤트는 받지 못함.
 
         Thread.sleep(2000);
