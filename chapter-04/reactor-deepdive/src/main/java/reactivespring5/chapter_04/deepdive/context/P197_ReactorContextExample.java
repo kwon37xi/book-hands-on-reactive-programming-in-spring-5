@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class P197_ReactorContextExample {
     public static void main(String[] args) throws InterruptedException {
         Flux.range(0, 10)
-            .flatMap((Integer k) -> Mono.subscriberContext()
+            .flatMap((Integer k) -> Mono.subscriberContext() // 컨텍스트에 접근/조작
                 .doOnNext(context -> {
 
                     Map<Object, Object> map = context.get("randoms");
@@ -26,13 +26,13 @@ public class P197_ReactorContextExample {
             )
             .publishOn(Schedulers.parallel())
             .flatMap((Integer k) ->
-                Mono.subscriberContext()
+                Mono.subscriberContext() // 컨텍스트에 접근/조작
                     .map(context -> {
                         log.info("get from context key {}", k);
                         Map<Object, Object> map = context.get("randoms");
                         return map.get(k);
                     }))
-            .subscriberContext(context -> context.put("randoms", new HashMap<>()))
+            .subscriberContext(context -> context.put("randoms", new HashMap<>())) // 컨텍스트 생성.
             .subscribe(o -> {
                 log.info("subscribe result : {}", o);
             });
